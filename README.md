@@ -1,32 +1,237 @@
-# Gravadora
+<h1 align="center">Gravadora</h1>
 
 ![descrição](frontend/images/banner.png)
 
-## Descrição do Projeto
+<h2 align="left" id="descricaoProjeto">Descrição do Projeto</h2>
+
 <p align="left">Um projeto de site de uma Gravadora para você conseguir criar bibliotecas com seus Artistas ou Bandas, Álbuns e Músicas favoritas!
 
 Navegue pelas diferentes telas e monte sua própria Biblioteca!</p>
 
-## Tabela de Conteúdos
-<ul id="tabelaconteudo" align="left">
-<li><a href="#descricaoprojeto">Descrição do Projeto</a></li>
-<li><a href="#statusprojeto">Status do Projeto</a></li>
-<li><a href="#tabelaconteudo">Tabela de Conteúdo</a></li>
-<li><a href="#tecnologias">Tecnologias</a></li>
-</ul>
+<h2 align="left" id="statusProjeto">Status do Projeto</h2>
 
-## Status do Projeto
 <h4 align="left">
 Em construção.🚀..
 </h4>
 
-## Features
--[x] Cadastro de Artistas/Bandas - Álbuns - Músicas<br>
--[x] Atualização de Artistas/Bandas - Álbuns - Músicas<br>
--[x] Exclusão de Artistas/Bandas - Álbuns - Músicas
-<
+<h2 align="left" id="tabelaConteudo">Tabela de Conteúdo</h2>
 
-### 🛠 Tecnologias
+<ul align="left">
+<li><a href="#descricaoProjeto">Descrição do Projeto</a></li>
+<li><a href="#statusProjeto">Status do Projeto</a></li>
+<li><a href="#tabelaConteudo">Tabela de Conteúdo</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#preRequisitos">Pré-requisitos</a></li>
+<li><a href="#mapaProjeto">Mapa do Projeto</a></li>
+<li><a href="#tecnologias">Tecnologias</a></li>
+</ul>
+
+<h2 align="left" id="preRequisitos">Pré-requisitos</h2>
+
+<h2 align="left" id="mapaProjeto">Mapa do Projeto</h2>
+
+<p align="left">
+
+```
+├───frontend
+│   ├───images
+│   ├───pages
+│   ├───scripts
+│   └───styles
+├───node_modules
+│   ├───.bin
+│   ├───@mongodb-js
+│   │   └───saslprep
+│   │       └───dist
+│   ├───@types
+│   │   ├───webidl-conversions
+│   │   └───whatwg-url
+│   │       └───lib
+│   ├───accepts
+│   ├───array-flatten
+│   ├───body-parser
+│   │   └───lib
+│   │       └───types
+│   ├───bson
+│   │   ├───etc
+│   │   ├───lib
+│   │   ├───src
+│   │   │   ├───parser
+│   │   │   │   └───on_demand
+│   │   │   └───utils
+│   │   └───vendor
+│   │       ├───base64
+│   │       └───text-encoding
+│   │           └───lib
+│   ├───bytes
+│   ├───call-bind
+│   │   ├───.github
+│   │   └───test
+│   ├───content-disposition
+│   ├───content-type
+│   ├───cookie
+│   ├───cookie-signature
+│   ├───cors
+│   │   └───lib
+│   ├───debug
+│   │   └───src
+│   ├───define-data-property
+│   │   ├───.github
+│   │   └───test
+│   ├───depd
+│   │   └───lib
+│   │       └───browser
+│   ├───destroy
+│   ├───dotenv
+│   │   └───lib
+│   ├───ee-first
+│   ├───encodeurl
+│   ├───es-define-property
+│   │   ├───.github
+│   │   └───test
+│   ├───es-errors
+│   │   ├───.github
+│   │   └───test
+│   ├───escape-html
+│   ├───etag
+│   ├───express
+│   │   └───lib
+│   │       ├───middleware
+│   │       └───router
+│   ├───finalhandler
+│   ├───forwarded
+│   ├───fresh
+│   ├───function-bind
+│   │   ├───.github
+│   │   └───test
+│   ├───get-intrinsic
+│   │   ├───.github
+│   │   └───test
+│   ├───gopd
+│   │   ├───.github
+│   │   └───test
+│   ├───has-property-descriptors
+│   │   ├───.github
+│   │   └───test
+│   ├───has-proto
+│   │   ├───.github
+│   │   └───test
+│   ├───has-symbols
+│   │   ├───.github
+│   │   └───test
+│   │       └───shams
+│   ├───hasown
+│   │   └───.github
+│   ├───http-errors
+│   ├───iconv-lite
+│   │   ├───encodings
+│   │   │   └───tables
+│   │   └───lib
+│   ├───inherits
+│   ├───ipaddr.js
+│   │   └───lib
+│   ├───media-typer
+│   ├───memory-pager
+│   ├───merge-descriptors
+│   ├───methods
+│   ├───mime
+│   │   └───src
+│   ├───mime-db
+│   ├───mime-types
+│   ├───mongodb
+│   │   ├───etc
+│   │   ├───lib
+│   │   │   ├───bulk
+│   │   │   ├───client-side-encryption
+│   │   │   │   └───providers
+│   │   │   ├───cmap
+│   │   │   │   ├───auth
+│   │   │   │   │   └───mongodb_oidc
+│   │   │   │   ├───handshake
+│   │   │   │   └───wire_protocol
+│   │   │   │       └───on_demand
+│   │   │   ├───cursor
+│   │   │   ├───gridfs
+│   │   │   ├───operations
+│   │   │   │   └───search_indexes
+│   │   │   └───sdam
+│   │   └───src
+│   │       ├───bulk
+│   │       ├───client-side-encryption
+│   │       │   └───providers
+│   │       ├───cmap
+│   │       │   ├───auth
+│   │       │   │   └───mongodb_oidc
+│   │       │   ├───handshake
+│   │       │   └───wire_protocol
+│   │       │       └───on_demand
+│   │       ├───cursor
+│   │       ├───gridfs
+│   │       ├───operations
+│   │       │   └───search_indexes
+│   │       └───sdam
+│   ├───mongodb-connection-string-url
+│   │   └───lib
+│   ├───ms
+│   ├───negotiator
+│   │   └───lib
+│   ├───object-assign
+│   ├───object-inspect
+│   │   ├───.github
+│   │   ├───example
+│   │   └───test
+│   │       └───browser
+│   ├───on-finished
+│   ├───parseurl
+│   ├───path-to-regexp
+│   ├───proxy-addr
+│   ├───punycode
+│   ├───qs
+│   │   ├───.github
+│   │   ├───dist
+│   │   ├───lib
+│   │   └───test
+│   ├───range-parser
+│   ├───raw-body
+│   ├───safe-buffer
+│   ├───safer-buffer
+│   ├───send
+│   │   └───node_modules
+│   │       └───ms
+│   ├───serve-static
+│   ├───set-function-length
+│   │   └───.github
+│   ├───setprototypeof
+│   │   └───test
+│   ├───side-channel
+│   │   ├───.github
+│   │   └───test
+│   ├───sparse-bitfield
+│   ├───statuses
+│   ├───toidentifier
+│   ├───tr46
+│   │   └───lib
+│   ├───type-is
+│   ├───unpipe
+│   ├───utils-merge
+│   ├───vary
+│   ├───webidl-conversions
+│   │   └───lib
+│   └───whatwg-url
+│       └───lib
+└───style
+```
+
+</p>
+
+<h2 align="left" id="features">Features</h2>
+
+- [x] Cadastro de Artistas/Bandas - Álbuns - Músicas<br>
+- [x] Atualização de Artistas/Bandas - Álbuns - Músicas<br>
+- [x] Exclusão de Artistas/Bandas - Álbuns - Músicas
+
+<h2 align="left" id="tecnologias">🛠 Tecnologias</h2>
+
 As seguintes ferramentas foram usadas na construção do projeto:
 
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
