@@ -3,40 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gravadora Yorkshire</title>
+    <title>Home Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
 
-    <link rel="stylesheet" href="../styles/homeStyle.css">
+        .jumbotron {
+            background-color: #f8f9fa;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 4px;
+            text-align: center;
+            width: 100%;
+            bottom: 0px;
+        }
+
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Gravadora Yorkshire</h1>
-
-        <nav>
-            <ul>
-                <li><a href="./home.html">Home</a></li>
-                <li><a href="./artista.html">Artistas e Bandas</a></li>
-                <li><a href="./album.html">Álbuns</a></li>
-                <li><a href="./musica.html">Músicas</a></li>
-            </ul>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"><img src="../images/logo.png" height="100" width="100"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </nav>
-    </header>
 
-    <main>
-        <section>
-            <h2>Bem-Vindo à Gravadora Yorkshire</h2>
-            <p>
-                Monte sua biblioteca de Artista ou Bandas, Álbuns e Músicas do jeito que preferir!
-                <br><br>
-                Navegue pelas telas para poder criar, alterar, excluir os conteúdos das suas bibliotecas!
-                <br><br>
-                Se divirta!
-            </p>
-        </section>
+        <div class="jumbotron mt-4">
+            <h1 class="display-4">Bem-Vindo à Gravadora Yorkshire</h1>
+            <p class="lead">Monte sua biblioteca de Artista ou Bandas, Álbuns e Músicas do jeito que preferir!</p>
+            <hr class="my-4">
+            <p>Navegue pelas telas para poder criar, alterar, excluir os conteúdos das suas bibliotecas e se divirta!</p>
+        </div>
 
-    </main>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Artistas e Bandas</h5>
+                        <p class="card-text">teste</p>
+                        <a href="#" class="btn btn-primary">Ir para a biblioteca</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Álbuns</h5>
+                        <p class="card-text">teste</p>
+                        <a href="#" class="btn btn-primary">Ir para a biblioteca</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Músicas</h5>
+                        <p class="card-text">Teste</p>
+                        <a href="#" class="btn btn-primary">Ir para a biblioteca</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <footer>
-        &copy; 2024 Gravadora Yorkshire. Todos os direitos reservados
+    <footer class="footer">
+        <div class="container text-center">
+            <span>&copy; 2024 Gravadora Yorkshire. Todos os direitos reservados</span>
+        </div>
     </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

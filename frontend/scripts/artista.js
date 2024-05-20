@@ -13,7 +13,6 @@ $(document).ready(function() {
     fetch('http://localhost:3000/api/artista')
         .then(response => response.json())
         .then(jsonResponse => {
-            debugger
             const table = $('#artistaTable').DataTable({
                 fixedHeader: true,
                 responsive: true,
@@ -71,8 +70,6 @@ $(document).ready(function() {
                             generos: $('#generos').val()
                         });
 
-                        debugger
-
                         fetch('http://localhost:3000/api/artista', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -80,7 +77,7 @@ $(document).ready(function() {
                         })
                         .then(response => response.json())
                         .then(data => {
-                            closeModal("actionModal", "formAction", table);
+                            closeModal("modalAction", "formAction", table);
                         })
                         .catch(error => console.error('Erro:', error));
                     });
