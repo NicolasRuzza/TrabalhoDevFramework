@@ -1,6 +1,6 @@
 # Gravadora
 
-![descrição](/Imagens/banner.png)
+![descrição](frontend/images/banner.png)
 
 ## Descrição do Projeto
 <p align="left">Um projeto de site de uma Gravadora para você conseguir criar bibliotecas com seus Artistas ou Bandas, Álbuns e Músicas favoritas!
