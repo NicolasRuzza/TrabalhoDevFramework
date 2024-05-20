@@ -1,7 +1,19 @@
+function callModal (modalId, formId) {
+    $(`#${modalId}`).modal("show");
+    $(`#${formId}`)[0].reset();
+}
+
+function closeModal (modalId, formId, table) {
+    $(`#${modalId}`).modal("hide");
+    $(`#${formId}`)[0].reset();
+    table.ajax.reload();
+}
+
 $(document).ready(function() {
     fetch('http://localhost:3000/api/artista')
         .then(response => response.json())
         .then(jsonResponse => {
+            debugger
             const table = $('#artistaTable').DataTable({
                 fixedHeader: true,
                 responsive: true,
@@ -17,14 +29,16 @@ $(document).ready(function() {
                         data: null,
                         render: function (data, type, row) {
                             return `
-                                <button class="btn btn-warning btn-sm update-btn" data-id="${data._id}" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">
+                                <button class="btn btn-warning btn-sm update-btn" data-id="${data._id}" data-bs-toggle="modal" data-bs-target="#modalAction">
                                     <span>
                                         <i class="fa-solid fa-pencil"></i>
+                                        &nbsp;Editar
                                     </span>
                                 </button>
-                                <button class="btn btn-danger btn-sm delete-btn" data-id="${data._id}" data-bs-toggle="tooltip" data-bs-placement="top" title="Excluir">
+                                <button class="btn btn-danger btn-sm delete-btn" data-id="${data._id}" data-bs-toggle="modal" data-bs-target="#modalDelete">
                                     <span>
                                         <i class="fa-solid fa-xmark"></i>
+                                        &nbsp; Excluir
                                     </span>
                                 </button>
                             `;
@@ -36,19 +50,39 @@ $(document).ready(function() {
 
                     $('#artistaTable').on('click', '.update-btn', function() {
                         const id = $(this).data('id');
-                        // Handle update logic here
-                        console.log('Update button clicked for ID:', id);
+                        
+                        callModal("modalAction", "formAction");
                     });
         
                     $('#artistaTable').on('click', '.delete-btn', function() {
                         const id = $(this).data('id');
-                        // Handle delete logic here
-                        console.log('Delete button clicked for ID:', id);
+
+                        callModal("modalDelete");
                     });
 
-                    $('#artistaTable_wrapper .insert-btn').on('click', function() {
-                        // Handle insert logic here
-                        console.log('Insert button clicked');
+                    $('#artistaTable_wrapper').on('click', '.insert-btn', function() {
+                        callModal("modalAction", "formAction");
+                    });
+
+                    $('#btnAction').on('click', function() {
+                        let formData = JSON.stringify({
+                            nome: $('#nome').val(),
+                            pais_de_origem: $('#pais_de_origem').val(),
+                            generos: $('#generos').val()
+                        });
+
+                        debugger
+
+                        fetch('http://localhost:3000/api/artista', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            closeModal("actionModal", "formAction", table);
+                        })
+                        .catch(error => console.error('Erro:', error));
                     });
                 },
                 layout: {
@@ -74,4 +108,3 @@ $(document).ready(function() {
         .catch(error => console.error('Erro:', error))
     ;
 });
-
