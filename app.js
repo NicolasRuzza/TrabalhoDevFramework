@@ -1,11 +1,12 @@
 require("dotenv").config();
 
 const 
-    cors            = require("cors"),
-    express         = require("express"),
-    { MongoClient } = require("mongodb"),
-    path            = require("path")
+    cors    = require("cors"),
+    express = require("express"),
+    path    = require("path")
 ;
+
+const { MongoClient, ObjectId } = require("mongodb");
 
 const
     app    = express(),
@@ -71,6 +72,7 @@ app.post("/api/artista", async (req, res) => {
     try {
         const { nome, pais_de_origem, generos } = req.body;
         console.log("-->",nome,"<-- -->",pais_de_origem,"<-- -->",generos,"<--");
+
         const collection = getCollection("artista");
         const result = await collection.insertOne(req.body);
 
@@ -81,3 +83,41 @@ app.post("/api/artista", async (req, res) => {
         res.status(500).json({ error: "Erro ao inserir dados" });
     }
 });
+
+app.put("/api/artista/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+        const { nome, pais_de_origem, generos } = req.body;
+        console.log("Esse é update-->",nome,"<-- -->",pais_de_origem,"<-- -->",generos,"<--");
+
+        const collection = getCollection("artista");
+        const result = await collection.updateOne({ _id: new ObjectId(id) }, { $set: { nome: nome, pais_de_origem: pais_de_origem, generos: generos } });
+
+        res.status(201).json(result);
+    } 
+    catch (error) {
+        console.error("Erro ao inserir dados:", error);
+        res.status(500).json({ error: "Erro ao inserir dados" });
+    }
+});
+
+app.delete("/api/artista/:id", async (req, res) => {
+    try {
+        const id = req.params.id;
+  
+        const collection = getCollection("artista");
+        const result = await collection.deleteOne({ _id: new ObjectId(id) });
+  
+        // Check if the document was found and deleted
+        if (result.deletedCount) {
+            res.status(200).json({ message: 'Document deleted successfully' });
+        } 
+        else {
+            res.status(404).json({ message: 'Document not found' });
+        }
+    } 
+    catch (error) {
+        console.error('Error deleting document:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+  });
