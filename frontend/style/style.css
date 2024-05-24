@@ -7,6 +7,10 @@
     font-size: 24px;
 }
 
+.nav-item .disabled-link {
+    pointer-events: none;
+}
+
 .footer {
     font-family: 'Roboto', sans-serif;
     background-color: #000(138, 136, 127);

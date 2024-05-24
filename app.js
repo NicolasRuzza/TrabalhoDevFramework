@@ -5,6 +5,8 @@ const
     express = require("express"),
     path    = require("path"),
     routerArtista = require("./routes/artista"),
+    routerAlbum = require("./routes/album"),
+    routerMusica = require("./routes/musica"),
     { connectToDatabase } = require("./database")
 ;
 
@@ -35,5 +37,7 @@ async function startServer() {
 startServer();
 
 app.use(`${apiPath}/artista`, routerArtista);
+app.use(`${apiPath}/album`, routerAlbum);
+app.use(`${apiPath}/musica`, routerMusica);
 
 module.exports = app;

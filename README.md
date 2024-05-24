@@ -11,7 +11,7 @@ Navegue pelas diferentes telas e monte sua própria Biblioteca!</p>
 <h2 align="left" id="statusProjeto">Status do Projeto</h2>
 
 <h4 align="left">
-Em construção.🚀..
+🚀 Em construção....
 </h4>
 
 <h2 align="left" id="tabelaConteudo">Tabela de Conteúdo</h2>
@@ -22,11 +22,39 @@ Em construção.🚀..
 <li><a href="#tabelaConteudo">Tabela de Conteúdo</a></li>
 <li><a href="#features">Features</a></li>
 <li><a href="#preRequisitos">Pré-requisitos</a></li>
+<li><a href="#backend">Rodando o Backend</a></li>
 <li><a href="#mapaProjeto">Mapa do Projeto</a></li>
 <li><a href="#tecnologias">Tecnologias</a></li>
 </ul>
 
 <h2 align="left" id="preRequisitos">Pré-requisitos</h2>
+
+Antes de começar você precisa ter instalado em sua máquina as seguintes ferramentas:
+[GIT](https://git-scm.com) e [Node.JS]((https://nodejs.org/dist/v20.13.1/node-v20.13.1-x64.msi)).
+
+Além disto é bom ter um editor para ter uma visão geral do código, como [VSCode](https://code.visualstudio.com/)
+
+<h2 align="left" id="backend">🔨 Rodando o Backend (servidor)</h2>
+
+<p>
+
+```bash
+# Clone este repositório
+$ git clone <path do repositório >
+
+# Acesse a pasta raiz do projeto no terminal/cmd
+$ cd TrabalhoDevFramework
+
+# Instale as dependências
+# Instale o node e confira se ele esta realmente instalado com
+$ Node -v
+
+# Execute a aplicação de api em modo de desenvolvimento
+$ Node app.js
+
+# O servidor inciará na porta: 3000
+```
+</p>
 
 <h2 align="left" id="mapaProjeto">Mapa do Projeto</h2>
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrador de Bandas: Banda</title>
+    <title>Cadastrador de Musicas: Musica</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -63,16 +63,16 @@
                 <div class="modal-body">
                     <form id="formSave">
                         <div class="mb-3">
-                            <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="nome" required>
+                            <label for="nome" class="form-label">Album</label>
+                            <input type="text" class="form-control" id="nome_album" required>
                         </div>
                         <div class="mb-3">
-                            <label for="pais_de_origem" class="form-label">País de Origem</label>
-                            <input type="text" class="form-control" id="pais_de_origem" required>
+                            <label for="pais_de_origem" class="form-label">Titulo</label>
+                            <input type="text" class="form-control" id="titulo" required>
                         </div>
                         <div class="mb-3">
-                            <label for="generos" class="form-label">Gêneros</label>
-                            <input type="text" class="form-control" id="generos" required>
+                            <label for="generos" class="form-label">Quantidade reproduzidas</label>
+                            <input type="text" class="form-control" id="qtd_reproduzida" required>
                         </div>
                     </form>
                 </div>
@@ -88,12 +88,12 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Apagar Artista</h5>
+                    <h5 class="modal-title">Apagar Musica</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="formDelete">
-                        <p>Tem certeza de que deseja excluir este artista?</p>
+                        <p>Tem certeza de que deseja excluir esta música?</p>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -106,12 +106,12 @@
 
     
     <div class="container mt-5">
-        <table id="artistaTable" class="table table-striped table-bordered" style="width:100%">
+        <table id="musicaTable" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>País de Origem</th>
-                    <th>Gêneros</th>
+                    <th>Album</th>
+                    <th>Titulo</th>
+                    <th>Quantidade reproduzidas</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -130,9 +130,9 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const currentPath = window.location.pathname;
-            const albumNavLink = document.querySelector('.nav-link[href="artista.html"]');
+            const albumNavLink = document.querySelector('.nav-link[href="musica.html"]');
             
-            if (currentPath.endsWith("artista.html")) {
+            if (currentPath.endsWith("musica.html")) {
                 albumNavLink.classList.add('disabled-link');
                 albumNavLink.removeAttribute('href');
             }
@@ -157,6 +157,6 @@
     <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/dataTables.fixedHeader.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/4.0.1/js/fixedHeader.dataTables.js"></script>
 
-    <script src="../scripts/artista.js"></script>
+    <script src="../scripts/musica.js"></script>
 </body>
 </html>
