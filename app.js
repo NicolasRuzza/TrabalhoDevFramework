@@ -3,16 +3,16 @@ require("dotenv").config();
 const 
     cors    = require("cors"),
     express = require("express"),
-    path    = require("path")
+    path    = require("path"),
+    { MongoClient, ObjectId } = require("mongodb")
 ;
 
-const { MongoClient, ObjectId } = require("mongodb");
-
 const
-    app    = express(),
-    port   = process.env.PORT,
-    conn   = process.env.MONGO_CONNECTION_STRING,
-    client = new MongoClient(conn)
+    apiPath  = process.env.API_PATH,
+    app      = express(),
+    port     = process.env.PORT,
+    connectionString = process.env.MONGO_CONNECTION_STRING,
+    client   = new MongoClient(connectionString)
 ;
 
 app.use(cors());
@@ -53,14 +53,15 @@ startServer();
 // -----------------------------------------------------------------------------------------------------------------------------
 // -----------------------------------------------------------------------------------------------------------------------------
 
+const artista_path = `${apiPath}/artista`;
+
 // ARTISTA
-app.get("/api/artista", async (req, res) => {
+app.get(artista_path, async (req, res) => {
     try {
         const collection = getCollection("artista");
-        const cursor = collection.find({}, {});
-        const result = await cursor.toArray();
+        const query = await collection.find({}, {}).toArray();
 
-        res.json(result);
+        res.json(query);
     }
     catch (error) {
         console.error("Erro ao consultar os dados da coleção artista:", error);
@@ -68,11 +69,23 @@ app.get("/api/artista", async (req, res) => {
     }
 });
 
-app.post("/api/artista", async (req, res) => {
+app.get(`${artista_path}/:id`, async (req, res) => {
     try {
-        const { nome, pais_de_origem, generos } = req.body;
-        console.log("-->",nome,"<-- -->",pais_de_origem,"<-- -->",generos,"<--");
+        const recordId = req.params.id;
 
+        const collection = getCollection("artista");
+        const query = await collection.findOne({_id: new ObjectId(recordId) }, {});
+
+        res.json(query);
+    }
+    catch (error) {
+        console.error("Erro ao consultar os dados da coleção artista:", error);
+        res.status(500).json({ error: "Erro ao consultar os dados" });
+    }
+});
+
+app.post(artista_path, async (req, res) => {
+    try {
         const collection = getCollection("artista");
         const result = await collection.insertOne(req.body);
 
@@ -84,14 +97,14 @@ app.post("/api/artista", async (req, res) => {
     }
 });
 
-app.put("/api/artista/:id", async (req, res) => {
+app.put(`${artista_path}/:id`, async (req, res) => {
     try {
-        const id = req.params.id;
-        const { nome, pais_de_origem, generos } = req.body;
-        console.log("Esse é update-->",nome,"<-- -->",pais_de_origem,"<-- -->",generos,"<--");
+        const recordId = req.params.id;
+        // const { nome, pais_de_origem, generos } = req.body;
+        // console.log("Esse é update-->",nome,"<-- -->",pais_de_origem,"<-- -->",generos,"<--");
 
         const collection = getCollection("artista");
-        const result = await collection.updateOne({ _id: new ObjectId(id) }, { $set: { nome: nome, pais_de_origem: pais_de_origem, generos: generos } });
+        const result = await collection.updateOne({ _id: new ObjectId(recordId) }, { $set: req.body });
 
         res.status(201).json(result);
     } 
@@ -101,23 +114,21 @@ app.put("/api/artista/:id", async (req, res) => {
     }
 });
 
-app.delete("/api/artista/:id", async (req, res) => {
+app.delete(`${artista_path}/:id`, async (req, res) => {
     try {
-        const id = req.params.id;
-  
+        const recordId = req.params.id;
         const collection = getCollection("artista");
-        const result = await collection.deleteOne({ _id: new ObjectId(id) });
+        const result = await collection.deleteOne({ _id: new ObjectId(recordId) });
   
-        // Check if the document was found and deleted
         if (result.deletedCount) {
-            res.status(200).json({ message: 'Document deleted successfully' });
+            res.status(200).json({ message: 'Documento deletado' });
         } 
         else {
-            res.status(404).json({ message: 'Document not found' });
+            res.status(404).json({ message: 'Documento não encontrado' });
         }
     } 
     catch (error) {
-        console.error('Error deleting document:', error);
-        res.status(500).json({ message: 'Internal server error' });
+        console.error('Erro ao deletar o documento:', error);
+        res.status(500).json({ message: 'Erro interno' });
     }
-  });
+});
