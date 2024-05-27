@@ -254,9 +254,9 @@ $ Node app.js
 
 <h2 align="left" id="features">Features</h2>
 
-- [x] Cadastro de Artistas/Bandas - Álbuns - Músicas<br>
-- [x] Atualização de Artistas/Bandas - Álbuns - Músicas<br>
-- [x] Exclusão de Artistas/Bandas - Álbuns - Músicas
+- [x] Cadastro de Artistas - Álbuns - Músicas<br>
+- [x] Atualização de Artistas - Álbuns - Músicas<br>
+- [x] Exclusão de Artistas - Álbuns - Músicas
 
 <h2 align="left" id="tecnologias">🛠 Tecnologias</h2>
 

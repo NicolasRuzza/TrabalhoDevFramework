@@ -41,3 +41,7 @@ body {
     background-color: #f8f9fada;
     border-color: #fff; 
 }
+
+.btn-right {
+    float: right;
+}

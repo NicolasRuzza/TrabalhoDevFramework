@@ -4,10 +4,10 @@ const
     cors    = require("cors"),
     express = require("express"),
     path    = require("path"),
-    routerArtista = require("./routes/artista"),
-    routerAlbum = require("./routes/album"),
-    routerMusica = require("./routes/musica"),
-    { connectToDatabase } = require("./database")
+    routerArtista = require("./backend/routes/artista"),
+    routerAlbum   = require("./backend/routes/album"),
+    routerMusica  = require("./backend/routes/musica"),
+    { connectToDatabase } = require("./backend/database")
 ;
 
 const
