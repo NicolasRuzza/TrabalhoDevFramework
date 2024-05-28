@@ -30,7 +30,7 @@ Navegue pelas diferentes telas e monte sua própria Biblioteca!</p>
 <h2 align="left" id="preRequisitos">Pré-requisitos</h2>
 
 Antes de começar você precisa ter instalado em sua máquina as seguintes ferramentas:
-[GIT](https://git-scm.com) e [Node.JS]((https://nodejs.org/dist/v20.13.1/node-v20.13.1-x64.msi)).
+[GIT](https://git-scm.com) e [Node.JS](https://nodejs.org/dist/v20.13.1/node-v20.13.1-x64.msi).
 
 Além disto é bom ter um editor para ter uma visão geral do código, como [VSCode](https://code.visualstudio.com/)
 
