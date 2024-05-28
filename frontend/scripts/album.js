@@ -51,7 +51,7 @@ $(document).ready(function() {
                 clearModalForm(modalSaveId);
             });
 
-            $(`#${tableId}_wrapper`).on("click", ".refresh-btn", refreshTable(table));
+            $(`#${tableId}_wrapper`).on("click", ".refresh-btn", function() { refreshTable(table); });
 
             $(`#${tableId}`).on("click", ".update-btn", function() {
                 const id = $(this).attr("record-id");
