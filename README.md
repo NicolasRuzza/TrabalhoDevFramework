@@ -39,17 +39,33 @@ Além disto é bom ter um editor para ter uma visão geral do código, como [VSC
 <p>
 
 ```bash
+# Instale as dependências
+
+# Abra o GIT BASH
+
+# Confira se ele esta realmente instalado com o seguinte comando no GIT Bash
+$ Node -v
+#Se ele estiver instalo corretamente você deve obter um retorno mostrando a versão do node
+
 # Clone este repositório
 $ git clone <path do repositório >
 
-# Acesse a pasta raiz do projeto no terminal/cmd
+# Ao terminar o GIT Clone, rode o seguinte comando
 $ cd TrabalhoDevFramework
 
-# Instale as dependências
-# Instale o node e confira se ele esta realmente instalado com
-$ Node -v
+# Execute o projeto
+$ code .
 
-# Execute a aplicação de api em modo de desenvolvimento
+# Abra a aba de Extensões do VisualCode e instale a extensão Live Server
+
+# Abra a aba Explorar e navegue até Home.html
+├───frontend
+│   ├───images
+│   ├───pages
+        ├───Home.html
+# Clique com o botão direito em cima de Home.html e escolha a opção: Open with Live Server
+
+# Execute a aplicação da api no GIT Bash
 $ Node app.js
 
 # O servidor inciará na porta: 3000
